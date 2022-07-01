@@ -15,9 +15,16 @@ jobs:
       - name: Run isotovideo against test code
         run: isotovideo qemu_no_kvm=1 casedir=.
 
-      - name: Collect failure logs
-        if: ${{ failure() }}
-        run: pwd && ls -lai
-
       - name: fail if any test module failed
         run: jq .result testresults/result-*.json | grep -v ok && echo "Test modules failed" && exit 1
+
+
+      - name: Collect failure logs
+        if: ${{ failure() }}
+        run: ls -lai testresults
+
+      - uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: Collect failure logs
+          path: testresults
