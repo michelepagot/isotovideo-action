@@ -19,7 +19,7 @@ jobs:
         run: jq .result testresults/result-*.json | grep -v ok && echo "Test modules failed" && exit 1
 
 
-      - name: Collect failure logs
+      - name: List failure logs
         if: ${{ failure() }}
         run: ls -lai testresults && find testresults -type f
 
