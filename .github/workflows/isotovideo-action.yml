@@ -21,7 +21,7 @@ jobs:
 
       - name: Collect failure logs
         if: ${{ failure() }}
-        run: ls -lai testresults
+        run: ls -lai testresults && find testresults -type f
 
       - uses: actions/upload-artifact@v3
         if: failure()
