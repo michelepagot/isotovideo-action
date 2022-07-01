@@ -5,6 +5,7 @@ use base 'basetest';
 use strict;
 
 sub run {
+    1;
 }
 
 1;
