@@ -5,6 +5,11 @@ Simple repository to try openQA isotovideo actions.
 
 This image has all the needed code: **registry.opensuse.org/devel/openqa/containers/isotovideo:qemu-x86**
 
+Tests can be executed locally as:
+```
+podman run --rm -it -v .:/opt/tests -v ./pool:/opt/pool -w /opt/pool registry.opensuse.org/devel/openqa/containers-tw/isotovideo:qemu-x86-os-autoinst-distri-opensuse -d casedir=/opt/tests
+```
+
 ## Credits
 Inspired by:
 * [this](https://kalikiana.gitlab.io/post/2022-03-16-running-standandalone-tests-with-isotovideo/) Kalikiana's post.
